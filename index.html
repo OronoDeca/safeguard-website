@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGuard - Protecting Seniors from Financial Scams</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1e3a5f;
+            --accent-gold: #d4a574;
+            --warm-cream: #f9f5f0;
+            --text-dark: #2c2c2c;
+            --alert-red: #c84c4c;
+            --safe-green: #5a8f69;
+            --border-soft: #d4c9be;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 20px;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--warm-cream);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Bitter', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Header */
+        header {
+            background: var(--primary-navy);
+            color: white;
+            padding: 2.5rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .shield-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primary-navy);
+        }
+
+        .logo h1 {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .helpline {
+            text-align: right;
+        }
+
+        .helpline-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .helpline-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #2c5282 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 165, 116, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: var(--primary-navy);
+            padding: 1.2rem 3rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: #e0b580;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Warning Banner */
+        .warning-banner {
+            background: var(--alert-red);
+            color: white;
+            padding: 2rem;
+            margin: 4rem auto;
+            border-radius: 12px;
+            border: 4px solid #a83838;
+            box-shadow: 0 4px 20px rgba(200, 76, 76, 0.3);
+        }
+
+        .warning-banner h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .warning-icon {
+            font-size: 2.5rem;
+        }
+
+        .warning-banner ul {
+            margin-left: 2rem;
+            margin-top: 1rem;
+        }
+
+        .warning-banner li {
+            margin: 0.8rem 0;
+            font-size: 1.2rem;
+        }
+
+        /* Common Scams Section */
+        .scams-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.3rem;
+            color: #666;
+        }
+
+        .scam-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .scam-card {
+            background: var(--warm-cream);
+            border: 3px solid var(--border-soft);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .scam-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: var(--accent-gold);
+        }
+
+        .scam-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .scam-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+        }
+
+        .scam-card p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .red-flag {
+            background: #fff3f3;
+            border-left: 4px solid var(--alert-red);
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .red-flag strong {
+            color: var(--alert-red);
+            font-weight: 700;
+        }
+
+        /* Protection Tips */
+        .tips-section {
+            padding: 5rem 0;
+            background: var(--primary-navy);
+            color: white;
+        }
+
+        .tips-section .section-header h2 {
+            color: white;
+        }
+
+        .tips-section .section-header p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tip-card {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(212, 165, 116, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .tip-number {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: var(--primary-navy);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .tip-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .tip-card p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        /* Resources Section */
+        .resources-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .resource-box {
+            background: var(--warm-cream);
+            border: 3px solid var(--safe-green);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .resource-box h3 {
+            color: var(--safe-green);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .resource-list {
+            list-style: none;
+        }
+
+        .resource-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-soft);
+            font-size: 1.2rem;
+        }
+
+        .resource-list li:last-child {
+            border-bottom: none;
+        }
+
+        .resource-list a {
+            color: var(--primary-navy);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .resource-list a:hover {
+            color: var(--safe-green);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-navy);
+            color: white;
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .emergency-contacts {
+            background: rgba(212, 165, 116, 0.15);
+            border: 2px solid var(--accent-gold);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .emergency-contacts h3 {
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            text-align: left;
+        }
+
+        .contact-item {
+            padding: 1rem;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .helpline {
+                text-align: center;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .scam-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <div class="shield-icon">🛡️</div>
+                <h1>SafeGuard</h1>
+            </div>
+            <div class="helpline">
+                <span class="helpline-number">1-800-SAFE-NOW</span>
+                <span class="helpline-text">24/7 Support Available</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Protecting Seniors from Financial Scams</h2>
+            <p>You've worked hard for your money. We're here to help you keep it safe from scammers who target older adults.</p>
+            <a href="#scams" class="cta-button">Learn About Common Scams</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="warning-banner">
+            <h3><span class="warning-icon">⚠️</span> Remember These Rules</h3>
+            <ul>
+                <li><strong>NO legitimate organization will EVER ask you to pay with gift cards, wire transfers, or cryptocurrency</strong></li>
+                <li><strong>The IRS, Social Security, and Medicare will NEVER call you demanding immediate payment</strong></li>
+                <li><strong>Your bank will NEVER ask you to transfer money to a "safe account"</strong></li>
+                <li><strong>If someone creates urgency or fear, it's likely a scam</strong></li>
+                <li><strong>When in doubt, HANG UP and call the official number yourself</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="scams-section" id="scams">
+        <div class="container">
+            <div class="section-header">
+                <h2>Common Scams Targeting Seniors</h2>
+                <p>Knowledge is your best defense. Learn to recognize these scams.</p>
+            </div>
+
+            <div class="scam-grid">
+                <div class="scam-card">
+                    <span class="scam-icon">📞</span>
+                    <h3>The Grandparent Scam</h3>
+                    <p>A scammer calls pretending to be your grandchild in trouble, claiming they need money urgently for bail, medical bills, or to fix a car accident. They'll beg you not to tell their parents.</p>
+                    <div class="red-flag">
+                        <strong>Red Flag:</strong> They ask you to send money immediately via wire transfer or gift cards. Always verify by calling your grandchild directly at their known number.
+                    </div>
+                </div>
+
+                <div class="scam-card">
+                    <span class="scam-icon">🏛️</span>
+                    <h3>Government Impersonation</h3>
+                    <p>Scammers pose as IRS agents, Social Security Administration, or Medicare officials claiming there's a problem with your benefits, taxes, or that your Social Security number has been suspended.</p>
+                    <div class="red-flag">
+                        <strong>Red Flag:</strong> Real government agencies send letters first and NEVER demand immediate payment or threaten arrest over the phone.
+                    </div>
+                </div>
+
+                <div class="scam-card">
+                    <span class="scam-icon">💻</span>
+                    <h3>Tech Support Scam</h3>
+                    <p>You receive a pop-up warning or phone call claiming your computer has a virus. The "technician" asks for remote access to your computer and payment to fix the fake problem.</p>
+                    <div class="red-flag">
+                        <strong>Red Flag:</strong> Legitimate tech companies don't cold-call customers. Never give remote access to your computer to unsolicited callers.
+                    </div>
+                </div>
+
+                <div class="scam-card">
+                    <span class="scam-icon">💳</span>
+                    <h3>Fake Charity Scam</h3>
+                    <p>After natural disasters or around holidays, scammers create fake charities or impersonate real ones to collect donations that never reach those in need.</p>
+                    <div class="red-flag">
+                        <strong>Red Flag:</strong> High-pressure tactics and requests for cash, gift cards, or wire transfers. Always research charities independently before donating.
+                    </div>
+                </div>
+
+                <div class="scam-card">
+                    <span class="scam-icon">💰</span>
+                    <h3>Lottery & Sweepstakes Scam</h3>
+                    <p>You're told you've won a prize or lottery but need to pay taxes or fees upfront to claim your winnings.</p>
+                    <div class="red-flag">
+                        <strong>Red Flag:</strong> You can't win a contest you didn't enter. Legitimate prizes never require upfront payment.
+                    </div>
+                </div>
+
+                <div class="scam-card">
+                    <span class="scam-icon">❤️</span>
+                    <h3>Romance Scam</h3>
+                    <p>Someone you meet online develops a quick romantic relationship with you, then creates an emergency situation requiring money. They may claim to be overseas or unable to meet in person.</p>
+                    <div class="red-flag">
+                        <strong>Red Flag:</strong> They profess love quickly, avoid video calls, and always have an excuse why they can't meet. Never send money to someone you've only met online.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tips-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>How to Protect Yourself</h2>
+                <p>Simple steps to keep your money and information safe</p>
+            </div>
+
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <h3>Slow Down</h3>
+                    <p>Scammers create urgency. Take your time. Legitimate organizations will give you time to think and verify. Never make financial decisions under pressure.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <h3>Verify Independently</h3>
+                    <p>Don't use contact information provided by the caller. Look up official numbers yourself and call back. Ask questions only the real person would know.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <h3>Never Pay With Gift Cards</h3>
+                    <p>No legitimate business or government agency accepts gift cards, wire transfers, or cryptocurrency for payments. These are red flags for scams.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <h3>Protect Personal Information</h3>
+                    <p>Never share your Social Security number, bank account details, or passwords over the phone, email, or text unless YOU initiated the contact.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">5</div>
+                    <h3>Talk to Someone</h3>
+                    <p>Before sending money or sharing information, talk to a family member, friend, or trusted advisor. Scammers often isolate their victims.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">6</div>
+                    <h3>Trust Your Instincts</h3>
+                    <p>If something feels wrong or too good to be true, it probably is. It's okay to hang up, delete the email, or say no.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="resources-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Helpful Resources</h2>
+                <p>Organizations that can help you stay safe</p>
+            </div>
+
+            <div class="resource-box">
+                <h3>Report Fraud & Get Help</h3>
+                <ul class="resource-list">
+                    <li><strong>Federal Trade Commission (FTC):</strong> <a href="https://reportfraud.ftc.gov">ReportFraud.ftc.gov</a> or call 1-877-FTC-HELP</li>
+                    <li><strong>FBI Internet Crime Complaint Center:</strong> <a href="https://www.ic3.gov">IC3.gov</a></li>
+                    <li><strong>AARP Fraud Watch Network:</strong> <a href="https://www.aarp.org/money/scams-fraud">AARP.org/fraudwatchnetwork</a> or call 1-877-908-3360</li>
+                    <li><strong>Social Security Fraud Hotline:</strong> 1-800-269-0271</li>
+                    <li><strong>IRS Impersonation Scam Reporting:</strong> Call 1-800-366-4484</li>
+                </ul>
+            </div>
+
+            <div class="resource-box">
+                <h3>Financial Protection</h3>
+                <ul class="resource-list">
+                    <li><strong>Contact your bank immediately</strong> if you've shared account information or sent money</li>
+                    <li><strong>Place a fraud alert</strong> on your credit reports by contacting one of the three credit bureaus</li>
+                    <li><strong>Consider a credit freeze</strong> to prevent new accounts from being opened in your name</li>
+                    <li><strong>Review your bank and credit card statements</strong> regularly for unauthorized charges</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="emergency-contacts">
+                <h3>Important Numbers to Keep Handy</h3>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <strong>SafeGuard Helpline</strong>
+                        <a href="tel:1-800-723-3669">1-800-SAFE-NOW</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>FTC Fraud Reports</strong>
+                        <a href="tel:1-877-382-4357">1-877-FTC-HELP</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>AARP Fraud Watch</strong>
+                        <a href="tel:1-877-908-3360">1-877-908-3360</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Local Police</strong>
+                        <a href="tel:911">911 (Emergency)</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-note">
+                <p><strong>SafeGuard</strong> - A DECA Project dedicated to protecting seniors from financial fraud</p>
+                <p>Remember: You are not alone. If you suspect you've been scammed, report it immediately. It's never too late to get help.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
